@@ -1,0 +1,35 @@
+MAIN PROCESS
+-----------------
+
+1. import settings
+2. import photo getter
+3. dot recognition
+4. razberi meje stolpcev
+5. razberi plasti
+6. razvrsti točke v plasti
+7. razvrsti točke v stolpce
+8. vrni rezultate v obliki arraya ali tekst datoteke
+
+opombe: import json
+
+
+SETTINGS FILE
+-----------------
+low_filter_settings
+high_filter_settings
+treshold_max_settings
+treshold_treshold_settings
+
+
+FILE STRUCTURE
+-----------------
+
+> Code
+	> MAIN.py
+	> SETTINGS.json
+	> IMPORTER.py
+	> RECOGNIZER.py
+	> DECODER.py
+	> OPTIONAL.py
+	
+
