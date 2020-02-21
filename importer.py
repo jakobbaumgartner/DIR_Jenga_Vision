@@ -8,7 +8,7 @@ class importer:
 		# different source imports
 		
 		if open == 'file':
-			image = cv2.imread('./kamera_m0/IMG_20191218_193049.jpg')
+			image = cv2.imread('./kamera_m0/b1.jpg')
 			source = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
 		return [image, source]

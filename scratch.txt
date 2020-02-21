@@ -33,3 +33,19 @@ FILE STRUCTURE
 	> OPTIONAL.py
 	
 
+TO-DO
+-----------------
+
+ > get middle lines of columns	- DONE
+	-> get image width 	- DONE
+	-> cut it in 3 parts	- DONE
+	-> set borders for columns 	- DONE
+ > sort by columns	- DONE
+	-> get elements in three arrays whether they are in between borders	- DONE
+ > sort elements by rows	- DONE
+	-> go point by point and create new row points if offset between existing row point and current - DONE
+		point is less than max_offset
+	-> loop throug points - DONE
+	-> check if point close to it is in array - DONE
+	-> if not add it - DONE
+ > return array

@@ -20,5 +20,7 @@ coordinates = recognizer.getDots(source, np.array([40, 100, 0]), np.array([190, 
 
 optional.printImages(image,coordinates)
 
+recognizer.simpleArray(coordinates, image.shape[1], 150)
+
 # wait before exit
 cv2.waitKey(0)

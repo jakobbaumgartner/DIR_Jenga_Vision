@@ -55,3 +55,134 @@ class recognizer:
 
 		return coordinates
 
+	def simpleArray (array, width, maxRowOffset):
+
+		# get borders for columns
+		columnBorder1 = width/3
+		columnBorder2 = width*2/3
+
+		column0 = []
+		column1 = []
+		column2 = []
+		rows = []
+
+		# sort all point
+
+		for element in array:
+			if (element[0] <= columnBorder1):
+				column0.append(element[1])
+			if (element[0] > columnBorder1 and element[0] <= columnBorder2):
+				column1.append(element[1])
+			if (element[0] > columnBorder2):
+				column2.append(element[1])
+		print(width)
+		print(" -- Column 0: -- ")
+		print(column0)
+		print(" -- Column 1: -- ")
+		print(column1)
+		print(" -- Column 2: -- ")
+		print(column2)
+
+
+
+
+		# set rows looking at first column
+		for element in column0: 
+			exists = False
+
+			for row in rows:
+				if abs(element-row) < maxRowOffset:
+					exists = True
+
+			if exists == False:
+				rows.append(element)
+
+		
+		# set rows looking at second column
+		for element in column1: 
+					exists = False
+
+					for row in rows:
+						if abs(element-row) < maxRowOffset:
+							exists = True
+
+					if exists == False:
+						rows.append(element)
+
+		
+		# set rows looking at third column
+		for element in column2: 
+					exists = False
+
+					for row in rows:
+						if abs(element-row) < maxRowOffset:
+							exists = True
+
+					if exists == False:
+						rows.append(element)
+
+
+		rows.sort()
+		print(" -- Rows: -- ")
+		print(rows)
+
+
+
+		# create points in columns and rows
+
+		simpleArrayReturn = []
+		# set rows looking at first column
+	
+		for element in column0: 
+			
+			for num, row in enumerate(rows, start=0):
+
+				if(abs(row-element) < maxRowOffset):
+					simpleArrayReturn.append([0, len(rows)-num])
+		
+		# set rows looking at second column
+		for element in column1: 
+				
+					for num, row in enumerate(rows, start=0):
+
+						if(abs(row-element) < maxRowOffset):
+							simpleArrayReturn.append([1, len(rows)-num])
+
+						
+		
+		# set rows looking at third column
+		for element in column2: 
+					
+					for num, row in enumerate(rows, start=0):
+						
+						if(abs(row-element) < maxRowOffset):
+							simpleArrayReturn.append([2, len(rows)-num])
+
+		# create simple tower representation:
+		simpleTower = []
+		
+		x = 0
+		while x < (3*len(rows)):
+			simpleTower.append(0)
+			x+=1
+
+
+		for x in simpleArrayReturn:
+			simpleTower[x[1]*3-3+x[0]] = 1
+
+		print(" --- ")
+		for num, block in enumerate(reversed(simpleTower), start=0):    # Možen problem zrcalnosti tale reversed
+			print(block, end='  ')
+			
+
+			if ((num+1) % 3 == 0):
+				print (" ")
+
+		print(simpleArrayReturn)
+		print(simpleTower)
+
+
+
+
+		
+
