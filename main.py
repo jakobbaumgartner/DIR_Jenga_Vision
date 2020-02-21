@@ -10,6 +10,7 @@ import cv2
 from optional import optional
 from importer import importer
 from recognizer import recognizer
+from cameraSettings import cameraSettings
 
 
 image = importer.getImage('file')[0]
@@ -21,6 +22,8 @@ coordinates = recognizer.getDots(source, np.array([40, 100, 0]), np.array([190, 
 optional.printImages(image,coordinates)
 
 recognizer.simpleArray(coordinates, image.shape[1], 150)
+
+cameraSettings.getPoint(image)
 
 # wait before exit
 cv2.waitKey(0)
