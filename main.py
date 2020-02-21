@@ -23,7 +23,7 @@ optional.printImages(image,coordinates)
 
 recognizer.simpleArray(coordinates, image.shape[1], 150)
 
-cameraSettings.getPoint(image)
+cameraSettings.getPoint(cameraSettings, image)
 
 # wait before exit
 cv2.waitKey(0)
