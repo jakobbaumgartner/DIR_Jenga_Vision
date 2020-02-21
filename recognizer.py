@@ -171,14 +171,16 @@ class recognizer:
 			simpleTower[x[1]*3-3+x[0]] = 1
 
 		print(" --- ")
-		for num, block in enumerate(reversed(simpleTower), start=0):    # Možen problem zrcalnosti tale reversed
+		for num, block in enumerate(simpleTower, start=0):   
 			print(block, end='  ')
 			
 
 			if ((num+1) % 3 == 0):
-				print (" ")
+				print ("- ", end='')
 
+		print('\n \n')
 		print(simpleArrayReturn)
+		print('\n \n')
 		print(simpleTower)
 
 
