@@ -10,22 +10,18 @@ class cameraSettings:
     def getPoint(self, image):
 
         # To get X coordinates click twice left mouse button, to get Y click once right mouse button, 
-        # to clear values click middle mouse button.
+        # to clear values click middle mouse button. To save values press altkey and move mouse just a bit.
 
         # open image
-        cv2.namedWindow('source', cv2.WINDOW_NORMAL)
-        cv2.imshow('source', image)
+        cv2.namedWindow('settings', cv2.WINDOW_NORMAL)
+        cv2.imshow('settings', image)
         # get two clicks and save coordinates
 
-        cv2.setMouseCallback('source', cameraSettings().getCoordinate, param = None)
+        cv2.setMouseCallback('settings', self().getCoordinate, param = None)
+      
+   
 
-        
-
-        # while(self.wait):
-        #     # keep waiting
-        #     wait = True
-        
-        # return [self.areaPointsX(0), self.areaPointsX(1), self.areaPointY]
+     
 
 
 
@@ -55,5 +51,8 @@ class cameraSettings:
             self.areaPointY = 0
             print('VALUES CLEARED, INPUT AGAIN.')
             return 0
+        
+        if (flag == cv2.EVENT_FLAG_ALTKEY):
+            print('SAVED')
         
         

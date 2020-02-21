@@ -12,6 +12,8 @@ from importer import importer
 from recognizer import recognizer
 from cameraSettings import cameraSettings
 
+settings = cameraSettings()
+
 
 image = importer.getImage('file')[0]
 source = importer.getImage('file')[1]
@@ -25,5 +27,5 @@ recognizer.simpleArray(coordinates, image.shape[1], 150)
 
 cameraSettings.getPoint(cameraSettings, image)
 
-# wait before exit
+
 cv2.waitKey(0)
