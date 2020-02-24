@@ -75,13 +75,13 @@ class recognizer:
 				column1.append(element[1])
 			if (element[0] > columnBorder2):
 				column2.append(element[1])
-		print(width)
-		print(" -- Column 0: -- ")
-		print(column0)
-		print(" -- Column 1: -- ")
-		print(column1)
-		print(" -- Column 2: -- ")
-		print(column2)
+		# print(width)
+		# print(" -- Column 0: -- ")
+		# print(column0)
+		# print(" -- Column 1: -- ")
+		# print(column1)
+		# print(" -- Column 2: -- ")
+		# print(column2)
 
 
 

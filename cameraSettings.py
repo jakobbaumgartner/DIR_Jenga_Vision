@@ -1,11 +1,13 @@
 import numpy as np
 import cv2
+import json
 
 class cameraSettings:
 
     areaPointsX = []
     areaPointY = 0
     wait = True
+    
 
     def getPoint(self, image):
 
@@ -19,7 +21,7 @@ class cameraSettings:
 
         cv2.setMouseCallback('settings', self().getCoordinate, param = None)
       
-   
+        self.image = image
 
      
 
@@ -53,6 +55,33 @@ class cameraSettings:
             return 0
         
         if (flag == cv2.EVENT_FLAG_ALTKEY):
-            print('SAVED')
+            cv2.destroyWindow("settings")
+            data = {
+                "x1": self.areaPointsX[0],
+                "x2": self.areaPointsX[1],
+                "y": self.areaPointY
+            }
+            jdata = json.dumps(data)
+            print(jdata)
+            with open('./Settings/cameraCutSettings.json', 'w') as outfile:
+                json.dump(data, outfile)
+
+            with open('./Settings/cameraCutSettings.json') as datafile:
+                data = json.load(datafile)
+            cv2.namedWindow('cut', cv2.WINDOW_NORMAL)
+            # cv2.resizeWindow('cut', 600,600)
+
+            cv2.imshow('cut', self.image[0:data['y'], data['x1']:data['x2']])
+            print('WINDOW CLOSED')
         
         
+    def getCut(self, image):
+
+        # Function returns part of image based on input coordinates.
+
+        with open('./Settings/cameraCutSettings.json') as datafile:
+            data = json.load(datafile)
+
+        print(data)
+        
+        return image[data['x1']:data['x2'], 0:data['y']]
