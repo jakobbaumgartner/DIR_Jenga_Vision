@@ -22,7 +22,7 @@ class cameraSettings:
         cv2.setMouseCallback('settings', self().getCoordinate, param = None)
       
         self.image = image
-
+        self.source = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
      
 
 
@@ -37,7 +37,7 @@ class cameraSettings:
                 self.areaPointsX.append(x)
                 print(self.areaPointsX)
                 print('-----------')
-            
+                print(self.source[y, x])
             else:
                 print('ERROR - TOO MANY POINTS.')
 

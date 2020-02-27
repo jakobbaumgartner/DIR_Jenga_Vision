@@ -29,7 +29,8 @@ class recognizer:
 		# contour returns just a couple of points for every 'dot'
 		cnts = cv2.findContours(dotsBW.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-
+		cv2.namedWindow('dots', cv2.WINDOW_NORMAL)
+		cv2.imshow('dots', dotsRGB)
 		# for every point out of contour get coordinates and calculate an average of x and y. That is the center of
 		# our dots. The dots are kind of 'circular', so it should be quite accurate.
 		coordinates = []

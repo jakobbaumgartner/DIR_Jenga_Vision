@@ -1,5 +1,6 @@
 import numpy as np
 import cv2
+import imutils
 
 class importer:
 
@@ -12,10 +13,21 @@ class importer:
 			source = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
 		if open == 'camera0':
-			cap = cv2.VideoCapture(0)
-			cap.set(cv2.CAP_PROP_FOCUS, 50) # set focus 0-255, increments of 5
+			cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+		
+
+
+			cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
+			cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
+
+			cap.set(cv2.CAP_PROP_FOCUS, 30) # set focus 0-255, increments of 5
+			cap.set(cv2.CAP_PROP_SATURATION, 250)
 
 			ret, frame = cap.read()
+
+			# rotation of image
+			frame = imutils.rotate_bound(frame, -90)
+
 			source = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 			cap.release()
 			image = frame
