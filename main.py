@@ -19,13 +19,11 @@ settings = cameraSettings()
 
 image = importer.getImage('camera0')[0]
 source = importer.getImage('camera0')[1]
-image2 = importer.getImage('camera1')[0]
-source2 = importer.getImage('camera1')[1]
 
-coordinates = recognizer.getDots(source, np.array([20, 100, 0]), np.array([40, 255, 255]), 60, 255)
+
+coordinates = recognizer.getDots(source, np.array([28, 180, 125]), np.array([40, 255, 180]), 60, 255)
 
 optional.printImages(image,coordinates)
-optional.printImages(image2,coordinates)
 
 recognizer.simpleArray(coordinates, image.shape[1], 400)
 
